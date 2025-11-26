@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BARTA Login</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="login-page">
+  <main class="login-panel">
+    <div class="login-brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 2C7.03 2 3 6.03 3 11c0 6.08 6.42 10.53 8.16 11.58a1 1 0 0 0 .96 0C14.58 21.53 21 17.08 21 11c0-4.97-4.03-9-9-9z"></path>
+      </svg>
+      <h2>BARTA</h2>
+    </div>
+
+    <h3 class="login-title">Sign in to BARTA</h3>
+    <p class="login-desc">Enter your phone number to continue</p>
+
+    <label class="field">
+      <select class="input input-select">
+        <option selected disabled>select a country</option>
+        <option>Bangladesh (+880)</option>
+        <option>India (+91)</option>
+        <option>USA (+1)</option>
+        <option>UK (+44)</option>
+      </select>
+    </label>
+
+    <label class="field">
+      <input class="input" type="text" placeholder="Enter your phone number" id="phone" />
+    </label>
+
+    <div class="actions">
+      <button id="loginBtn" class="btn btn-primary">Continue</button>
+      <a class="btn btn-ghost" href="chat.html">Or browse chats</a>
+    </div>
+
+    <p class="small">or scan QR from your mobile app to login</p>
+  </main>
+
+  <script>
+    document.getElementById('loginBtn').addEventListener('click', () => {
+      const phone = document.getElementById('phone').value.trim();
+      if (!phone) {
+        alert('Please enter your phone number');
+        return;
+      }
+      // In this demo we simply route to chat.html
+      window.location.href = 'chat.html';
+    });
+  </script>
+</body>
+</html>
