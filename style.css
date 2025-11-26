@@ -1,0 +1,152 @@
+/* -----------------------
+   FONTS & VARIABLES
+   ----------------------- */
+@font-face {
+  font-family: Figtree;
+  src: url('fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+:root{
+  --bg:#1e1f22;            /* app background */
+  --sidebar:#0f1113;       /* left sidebar */
+  --panel:#18191b;         /* chat panel */
+  --muted:#9aa0a6;         /* secondary text */
+  --accent:#5865f2;        /* discord-like accent */
+  --accent-2:#7b6ff2;
+  --bubble-left:#2f3136;
+  --bubble-right:#4f566f;
+  --glass: rgba(255,255,255,0.03);
+  --radius:12px;
+}
+
+/* -----------------------
+   RESET
+   ----------------------- */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:Figtree, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg,var(--bg),#141516);
+  color:#e6eef6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* -----------------------
+   UTILS
+   ----------------------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:10px 14px;border-radius:10px;border:0;cursor:pointer;
+  background:var(--glass);color:inherit;font-weight:600;
+}
+.btn-primary{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#fff;box-shadow:0 6px 18px rgba(88,101,242,0.14);
+}
+.btn-ghost{
+  background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.03);
+}
+.icon-btn{
+  background:transparent;border:0;color:var(--muted);padding:8px;border-radius:8px;cursor:pointer;
+}
+.avatar{width:52px;height:52px;border-radius:12px;object-fit:cover}
+.avatar-sm{width:40px;height:40px;border-radius:10px;object-fit:cover}
+
+/* -----------------------
+   INDEX PAGE
+   ----------------------- */
+.index-page .hero{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:48px;
+}
+.hero-inner{max-width:900px;text-align:center}
+.brand{display:inline-flex;align-items:center;gap:12px;margin-bottom:18px;color:#fff}
+.brand-icon{color:var(--accent)}
+.brand-name{font-weight:900;letter-spacing:6px}
+.hero-title{font-size:40px;margin-bottom:8px}
+.hero-sub{color:var(--muted);margin-bottom:24px}
+.hero-cta .btn{font-size:16px;padding:12px 26px;border-radius:14px}
+
+/* -----------------------
+   LOGIN PAGE
+   ----------------------- */
+.login-page{display:flex;align-items:center;justify-content:center;min-height:100vh}
+.login-panel{
+  width:360px;padding:28px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+.login-brand{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:18px}
+.login-brand h2{letter-spacing:6px}
+.login-title{font-size:18px;text-align:center;margin-bottom:8px}
+.login-desc{color:var(--muted);text-align:center;margin-bottom:18px}
+.field{display:block;margin-bottom:12px}
+.input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+.input:focus{outline:none;box-shadow:0 0 0 3px rgba(88,101,242,0.12);border-color:transparent}
+.actions{display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px}
+.small{color:var(--muted);text-align:center;margin-top:10px}
+
+/* -----------------------
+   APP LAYOUT
+   ----------------------- */
+.layout{display:flex;height:100vh;width:100vw;overflow:hidden}
+.sidebar{
+  width:300px;background:linear-gradient(180deg,var(--sidebar),#0b0c0d);
+  padding:20px;display:flex;flex-direction:column;gap:18px;
+}
+.sidebar-top{display:flex;flex-direction:column;gap:12px}
+.profile{display:flex;align-items:center;gap:12px}
+.profile-meta{display:flex;flex-direction:column}
+.app-name{font-weight:900;font-size:20px;letter-spacing:6px}
+.status{color:var(--muted);font-size:12px}
+.searchbox{margin-top:6px}
+.search-input{width:100%;padding:10px;border-radius:10px;border:0;background:rgba(255,255,255,0.02);color:var(--muted)}
+.user-list{display:flex;flex-direction:column;gap:8px;overflow:auto;padding-right:6px}
+.user, .user-link{display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;color:inherit;text-decoration:none}
+.user img{width:44px;height:44px;border-radius:10px;object-fit:cover}
+.user span{font-weight:600}
+.user:hover, .user-link:hover{background:rgba(255,255,255,0.02);transform:translateY(-1px)}
+.sidebar-footer{margin-top:auto;display:flex;justify-content:center}
+
+/* -----------------------
+   CHAT AREA
+   ----------------------- */
+.chat-area{flex:1;display:flex;flex-direction:column;background:var(--panel)}
+.chat-topbar{
+  height:72px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid rgba(255,255,255,0.03);
+}
+.chat-person{display:flex;align-items:center;gap:12px}
+.chat-person-meta{display:flex;flex-direction:column}
+.chat-name{font-weight:800}
+.chat-sub{font-size:12px;color:var(--muted)}
+.chat-actions{display:flex;gap:8px;align-items:center}
+
+/* messages */
+.messages{
+  flex:1;padding:20px;display:flex;flex-direction:column;gap:12px;overflow:auto;background:linear-gradient(180deg,transparent, rgba(255,255,255,0.01));
+}
+.msg{
+  max-width:65%;padding:12px 14px;border-radius:12px;font-size:14px;line-height:1.3;
+  box-shadow:0 6px 14px rgba(0,0,0,0.35);
+}
+.left{align-self:flex-start;background:var(--bubble-left);border-bottom-left-radius:4px;color:#d8dae0}
+.right{align-self:flex-end;background:var(--bubble-right);border-bottom-right-radius:4px;color:#fff}
+
+/* composer */
+.composer{
+  padding:14px;border-top:1px solid rgba(255,255,255,0.03);display:flex;gap:12px;align-items:center;background:linear-gradient(180deg,transparent, rgba(0,0,0,0.02));
+}
+.composer-input{flex:1;padding:12px;border-radius:999px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
+.btn-send{padding:12px 16px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border:0;cursor:pointer;box-shadow:0 8px 20px rgba(88,101,242,0.18);}
+
+/* responsive tweaks */
+@media (max-width:980px){
+  .sidebar{width:240px}
+  .app-name{display:none}
+}
+@media (max-width:700px){
+  .layout{flex-direction:column}
+  .sidebar{width:100%;height:auto;display:flex;flex-direction:row;gap:12px;align-items:center;padding:12px}
+  .chat-area{height:calc(100vh - 84px)}
+}
